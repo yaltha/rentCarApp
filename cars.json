@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "brandName": "toyota avanza - m",
+        "gearTransmision":"manual",
+        "rentPrice": 30.59
+    },
+    {
+        "id": 2,
+        "brandName": "toyota avanza - at",
+        "gearTransmision":"auto-matic",
+        "rentPrice": 35.79
+    },
+    {
+        "id": 3,
+        "brandName": "daihatsu xenia - m",
+        "gearTransmision":"auto-matic",
+        "rentPrice": 32.45
+    }
+]

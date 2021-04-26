@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import ButtonAuthentication from "./Button_Auth";
-import InputAuthentication from "./Input_Auth";
+import ButtonAuthentication from "../components/Button_Auth";
+import InputAuthentication from "../components/Input_Auth";
 
 const Login = () => {
   return (

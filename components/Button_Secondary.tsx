@@ -1,29 +1,26 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-type Props ={
-    btnText: String,
-    // btnFontSize: Number
+type Props = {
+    btnText: String
 }
 
-const Button_Main: React.FC<Props> = ({
-    btnText, 
-    // btnFontSize
-    }) => {
+const Button_Secondary: React.FC<Props> = ({
+    btnText
+}) => {
     return (
-        <TouchableOpacity style={styles.btnMain}>
+        <TouchableOpacity style={styles.btnContainer}>
             <Text style={styles.btnTextStyle}>{btnText}</Text>
         </TouchableOpacity>
     )
 }
 
-export default Button_Main
+export default Button_Secondary
 
 const styles = StyleSheet.create({
-    btnMain:{
-        width: 300,
-        height: 85,
-        marginBottom: 20,
+    btnContainer:{
+        width: 205,
+        height: 50,
         backgroundColor: '#ffc100',
         justifyContent: 'center',
         alignItems: 'center',
@@ -39,8 +36,8 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     btnTextStyle:{
-        fontSize:38,
-        color: 'white',
+        fontSize: 18,
+        color: '#0f0f0f',
         fontWeight: 'bold'
     }
 })
