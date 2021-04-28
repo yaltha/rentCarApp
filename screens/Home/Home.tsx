@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import Button_Main from '../components/Button_Main'
-import Button_Secondary from '../components/Button_Secondary'
-import HomeHeader from '../components/HomeHeader'
-import SearchField from '../components/SearchField'
+import Button_Main from '../../components/Button_Main'
+import Button_Secondary from '../../components/Button_Secondary'
+import HomeHeader from '../../components/HomeHeader'
+import SearchField from '../../components/SearchField'
 
 const Home = ({}) => {
     return (

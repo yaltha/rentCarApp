@@ -1,17 +1,16 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../screens/Home";
-import Account from "../screens/Account";
-import Cars from "../screens/Cars";
-import Rent from "../screens/Rent";
 import { MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
+import { TabNavigatorParamsList } from "../types";
 
-const Tab = createBottomTabNavigator();
+import { Account, Home, Cars, Rent } from '../screens'
 
-const Tabs = () => {
+const TabStack = createBottomTabNavigator<TabNavigatorParamsList>();
+
+const TabNavigator = () => {
+  const { Navigator, Screen } = TabStack
   return (
-    <Tab.Navigator
+    <Navigator
       initialRouteName="Home"
       tabBarOptions={{
         activeTintColor: "#ffc100",
@@ -27,7 +26,7 @@ const Tabs = () => {
         keyboardHidesTabBar: true,
       }}
     >
-      <Tab.Screen
+      <Screen
         name="Home"
         component={Home}
         options={{
@@ -37,7 +36,7 @@ const Tabs = () => {
           ),
         }}
       />
-      <Tab.Screen
+      <Screen
         name="Cars"
         component={Cars}
         options={{
@@ -51,7 +50,7 @@ const Tabs = () => {
           ),
         }}
       />
-      <Tab.Screen
+      <Screen
         name="Rent"
         component={Rent}
         options={{
@@ -61,8 +60,8 @@ const Tabs = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="Me"
+      <Screen
+        name="Account"
         component={Account}
         options={{
           tabBarLabel: "Me",
@@ -71,10 +70,8 @@ const Tabs = () => {
           ),
         }}
       />
-    </Tab.Navigator>
+    </Navigator>
   );
 };
 
-export default Tabs;
-
-// const styles = StyleSheet.create({});
+export default TabNavigator;

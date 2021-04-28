@@ -1,13 +1,13 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-import Home from "../screens/Home";
-import Login from "../screens/Login";
-import Signup from "../screens/Signup";
-import Account from "../screens/Account";
-import Cars from "../screens/Cars";
-import Rent from "../screens/Rent";
-import TermsAndConditions from "../screens/TermsAndConditions";
+import Home from "../screens/Home/Home";
+import Login from "../screens/Login/Login";
+import Signup from "../screens/Signup/Signup";
+import Account from "../screens/Account/Account";
+import Cars from "../screens/Cars/Cars";
+import Rent from "../screens/Rent/Rent";
+import TermsAndConditions from "../screens/TermsAndConditions/TermsAndConditions";
 
 import { createStackNavigator } from "@react-navigation/stack";
 

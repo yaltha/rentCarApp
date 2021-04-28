@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import Button_Main from '../components/Button_Main'
-import CarCard from '../components/CarCard'
+import Button_Main from '../../components/Button_Main'
+import CarCard from '../../components/CarCard'
 
 const Rent = () => {
     const [isSelectedCar, setIsSelectedCar] = useState(false)
