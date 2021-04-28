@@ -24,7 +24,7 @@ const Tabs = () => {
           padding: 10,
           position: 'absolute',
         },
-        keyboardHidesTabBar: true
+        keyboardHidesTabBar: true,
       }}
     >
       <Tab.Screen

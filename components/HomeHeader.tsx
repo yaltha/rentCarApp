@@ -9,11 +9,20 @@ import {
   View,
 } from "react-native";
 
-const HomeHeader = () => {
+import { StackNavigationProp } from '@react-navigation/stack'
+import { RootStackParamList } from './StackNavigator'
+
+type HomeHeaderScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Home'>
+
+type Props = {
+  navigation:  HomeHeaderScreenNavigationProps
+}
+
+const HomeHeader = ({navigation}:Props) => {
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.headerText}>Welcome, John</Text>
-      <TouchableOpacity style={styles.avatar}>
+      <TouchableOpacity style={styles.avatar} onPress={()=>navigation.navigate('Account')}>
         {/* <Image source={} style={styles.avatarImage}/> */}
       </TouchableOpacity>
     </View>
@@ -25,8 +34,8 @@ export default HomeHeader;
 const styles = StyleSheet.create({
   headerContainer: {
     width: (Dimensions.get("window").width)-30,
-    marginTop: StatusBar.currentHeight,
-    paddingVertical: 30,
+    // marginTop: StatusBar.currentHeight,
+    paddingVertical: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
