@@ -7,18 +7,18 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: StatusBar.currentHeight
     },
+    scrollViewContainer:{
+        
+    },
     subTitleText:{
         textTransform: 'uppercase',
         alignSelf: 'flex-start',
-        marginLeft: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     selectCarContainer:{
         width: Dimensions.get('window').width - 30,
         height: 400,
         backgroundColor: '#e5e5e5',
-        // borderWidth: 1,
-        // borderColor: 'grey',
         borderRadius: 10,
         marginVertical:10,
         justifyContent: 'center',
@@ -26,17 +26,19 @@ export const styles = StyleSheet.create({
     },
     gearTransmisionContainer:{
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
-        width: Dimensions.get('window').width - 40,
+        width: Dimensions.get('window').width - 30,
         backgroundColor: 'transparent',
         borderWidth: 3,
         borderColor: '#ffc100',
-        padding: 5
+        marginVertical:10
     },
     manualStyle:{
+        width: (Dimensions.get('window').width - 50)/2,
         backgroundColor: '#ffc100',
-        padding: 50,
+        padding: 20,
+        margin: 5,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -45,12 +47,35 @@ export const styles = StyleSheet.create({
         color: '#fffccc'
     },
     autoMaticStyle:{
+        width: (Dimensions.get('window').width - 50)/2,
         backgroundColor:'#adadad',
-        padding: 50,
+        padding: 20,
+        margin: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     pickDateContainer:{
         width: Dimensions.get('window').width - 40,
     },
-    startDate:{},
-    endDate:{}
+    startDate:{
+        marginVertical: 20
+    },
+    endDate:{
+        marginVertical: 20
+        
+    },
+    ctaBtn:{
+        backgroundColor: '#ffc100',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        marginVertical: 20,
+        padding: 20,
+        borderRadius: 50,
+    },
+    ctaBtnText:{
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        marginLeft: 10
+    }
 }) 
