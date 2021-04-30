@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import Button_Main from '../../components/Button_Main'
 import CarCard from '../../components/CarCard'
+import { styles } from './styles'
 
 const Rent = () => {
     const [isSelectedCar, setIsSelectedCar] = useState(false)
-    
     return (
-        <View>
-            <Text>select a car</Text>
+        <View style={styles.rentContainer}>
+            <Text style={styles.subTitleText}>select a car</Text>
             <View style={styles.selectCarContainer}>
                     <Text>select a car</Text>
                  </View>
@@ -20,7 +20,7 @@ const Rent = () => {
                 (<CarCard/>)
                 } */}
             
-            <Text>gear transmision</Text>
+            <Text style={styles.subTitleText}>gear transmision</Text>
             <View style={styles.gearTransmisionContainer}>
                 <TouchableOpacity style={styles.manualStyle}>
                     <Text style={styles.gearText}>manual</Text>
@@ -30,7 +30,7 @@ const Rent = () => {
                 </TouchableOpacity>
             </View>
             
-            <Text>rent date</Text>
+            <Text style={styles.subTitleText}>rent date</Text>
             <View style={styles.pickDateContainer}>
                 <Text>Start Renting:</Text>
                 <TextInput style={styles.startDate} placeholder="start rent from..." keyboardType="default"/>
@@ -38,20 +38,9 @@ const Rent = () => {
                 <TextInput style={styles.endDate} placeholder="end rent to..." keyboardType="default"/>
             </View>
             
-            <Button_Main btnText="order"/>
+            <Button_Main btnText="place order"/>
         </View>
     )
 }
 
 export default Rent
-
-const styles = StyleSheet.create({
-    selectCarContainer:{},
-    gearTransmisionContainer:{},
-    manualStyle:{},
-    gearText:{},
-    autoMaticStyle:{},
-    pickDateContainer:{},
-    startDate:{},
-    endDate:{}
-})

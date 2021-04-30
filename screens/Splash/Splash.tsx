@@ -1,11 +1,23 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 import styles from './styles'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { TopNavigatorParamsList } from '../../types'
 
-const Splash = () => {
+export interface SplashProps {
+    navigation: StackNavigationProp<TopNavigatorParamsList, 'Splash'>
+}
+
+const Splash: React.FC<SplashProps> = ({navigation}) => {
     return (
-        <View>
-            <Text></Text>
+        <View style={styles.root}>
+            <Text style={styles.greeting}>Splash</Text>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={()=>navigation.navigate('Tabs')}
+                >
+            <Text>Tap to Enter</Text>
+            </TouchableOpacity>
         </View>
     )
 }

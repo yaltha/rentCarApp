@@ -3,16 +3,17 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 type Props ={
     btnText: String,
-    // btnFontSize: Number
-    // onPress: {}
+    onPress: () => void,
+    // style: {}
 }
 
 const Button_Main: React.FC<Props> = ({
     btnText, 
-    // btnFontSize
+    // style,
+    onPress
     }) => {
     return (
-        <TouchableOpacity style={styles.btnContainer}>
+        <TouchableOpacity style={styles.btnContainer} onPress={onPress}>
             <Text style={styles.btnTextStyle}>{btnText}</Text>
         </TouchableOpacity>
     )

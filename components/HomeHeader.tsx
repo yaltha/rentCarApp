@@ -10,15 +10,13 @@ import {
 } from "react-native";
 
 import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from './StackNavigator'
+import { TabNavigatorParamsList } from "../types";
 
-type HomeHeaderScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Home'>
-
-type Props = {
-  navigation:  HomeHeaderScreenNavigationProps
+export interface HomeHeaderProps {
+  navigation: StackNavigationProp<TabNavigatorParamsList, 'Account'>
 }
 
-const HomeHeader = ({navigation}:Props) => {
+const HomeHeader: React.FC<HomeHeaderProps> = ({navigation}) => {
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.headerText}>Welcome, John</Text>
@@ -34,13 +32,11 @@ export default HomeHeader;
 const styles = StyleSheet.create({
   headerContainer: {
     width: (Dimensions.get("window").width)-30,
-    // marginTop: StatusBar.currentHeight,
-    paddingVertical: 20,
+    marginTop: StatusBar.currentHeight,
+    paddingVertical: 30,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    // backgroundColor: 'papayawhip'
-
   },
   headerText: {
     fontSize:18,

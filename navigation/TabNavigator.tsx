@@ -13,15 +13,17 @@ const TabNavigator = () => {
     <Navigator
       initialRouteName="Home"
       tabBarOptions={{
-        activeTintColor: "#ffc100",
+        activeTintColor: "#0F0909",
         labelStyle: {
-          // fontSize:12,
-          // backgroundColor:'yellow'
+          fontSize:12,
+          paddingBottom: 10
         },
         style: {
-          height: 50,
-          padding: 10,
-          position: 'absolute',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: 80,
+          backgroundColor: '#ffc100',
+          paddingTop: 10,
         },
         keyboardHidesTabBar: true,
       }}
