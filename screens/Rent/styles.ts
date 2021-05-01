@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         borderWidth: 3,
         borderColor: '#ffc100',
-        marginVertical:10
+        marginVertical:20
     },
     manualStyle:{
         width: (Dimensions.get('window').width - 50)/2,
@@ -58,11 +58,23 @@ export const styles = StyleSheet.create({
         width: Dimensions.get('window').width - 40,
     },
     startDate:{
-        marginVertical: 20
+        marginTop: 10,
+        backgroundColor: 'wheat',
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        borderRadius: 5,
     },
     endDate:{
-        marginVertical: 20
-        
+        marginTop: 10,
+        backgroundColor: 'wheat',
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        borderRadius: 5,
+    },
+    pickDate:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     ctaBtn:{
         backgroundColor: '#ffc100',

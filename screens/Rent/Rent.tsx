@@ -47,12 +47,20 @@ const Rent = () => {
           <TouchableOpacity
             style={styles.startDate}
             >
-              <Text>Start Renting:</Text>
+            <View style={styles.pickDate}>
+              <Text>Start Renting</Text>
+              <Icon type="font-awesome-5" name="calendar-check"/>
+            </View>
+              <Text>DD/MM/YYYY</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.endDate}
             >
-              <Text>End Renting:</Text>
+              <View style={styles.pickDate}>
+              <Text>End Renting</Text>
+              <Icon type="font-awesome-5" name="calendar-check"/>
+            </View>
+              <Text>DD/MM/YYYY</Text>
           </TouchableOpacity>
         </View>
 
