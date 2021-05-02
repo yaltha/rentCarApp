@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import {
-    Button,
+  Button,
+  DatePickerAndroidStatic,
+  Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -10,12 +12,57 @@ import {
   View,
 } from "react-native";
 import { Icon } from "react-native-elements/dist/icons/Icon";
+// import DateTimePicker from '@react-native-community/datetimepicker'
+import DateTimePickerModal from 'react-native-modal-datetime-picker'
+
 import Button_Main from "../../components/Button_Main";
 import CarCard from "../../components/CarCard";
 import { styles } from "./styles";
 
+interface RentProps {
+  // onChange: number
+}
+
 const Rent = () => {
   const [isSelectedCar, setIsSelectedCar] = useState(false);
+
+  //date picker useState
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+  const [isDatePickerVisible, setIsDatePickerVisible] = useState(false)
+
+  // const onChange = (
+  //   event: React.ChangeEvent<DatePickerAndroidStatic>, selectedDate: Date
+  // ) => {
+  //   const currentDate = selectedDate || date
+  //   setShow(Platform.OS === 'android')
+  //   setDate(currentDate)
+  // }
+
+  // const showMode = (currentMode: string) => {
+  //   setShow(true);
+  //   setMode(currentMode)
+  // }
+
+  const showDatePicker = () => {
+    setIsDatePickerVisible(true)
+  }
+  const hideDatePicker = () => {
+    setIsDatePickerVisible(false)
+  }
+
+  const handleConfirm = (date: Date) => {
+    console.warn("A date has been picked", date)
+    hideDatePicker()
+    setDate(date)
+  }
+
+  // const showDatePicker = () => {
+  //   showMode('date')
+  // }
+
   return (
     <SafeAreaView style={styles.rentContainer}>
       <ScrollView style={styles.scrollViewContainer} showsVerticalScrollIndicator={false}>
@@ -46,28 +93,43 @@ const Rent = () => {
         <View style={styles.pickDateContainer}>
           <TouchableOpacity
             style={styles.startDate}
-            >
+            onPress={showDatePicker}
+          >
             <View style={styles.pickDate}>
               <Text>Start Renting</Text>
-              <Icon type="font-awesome-5" name="calendar-check"/>
+              <Icon type="font-awesome-5" name="calendar-check" />
             </View>
-              <Text>DD/MM/YYYY</Text>
+            <Text>{date.getDate()} {date.getMonth().toString()} {date.getFullYear()}</Text>
+            {/* <DateTimePicker
+              testID="dateTimePicker"
+              value={date}
+              mode="date"
+              is24Hour={true}
+              display="default"
+              onChange={onChange}
+            /> */}
+            <DateTimePickerModal
+              isVisible={isDatePickerVisible}
+              mode='date'
+              onConfirm={handleConfirm}
+              onCancel={hideDatePicker}
+            />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.endDate}
-            >
-              <View style={styles.pickDate}>
+          >
+            <View style={styles.pickDate}>
               <Text>End Renting</Text>
-              <Icon type="font-awesome-5" name="calendar-check"/>
+              <Icon type="font-awesome-5" name="calendar-check" />
             </View>
-              <Text>DD/MM/YYYY</Text>
+            <Text>DD/MM/YYYY</Text>
           </TouchableOpacity>
         </View>
 
         {/* <Button_Main btnText="place order" /> */}
         <TouchableOpacity style={styles.ctaBtn}>
-        <Icon type="font-awesome-5" name="chevron-circle-right"/>
-            <Text style={styles.ctaBtnText}>place order</Text>
+          <Icon type="font-awesome-5" name="chevron-circle-right" />
+          <Text style={styles.ctaBtnText}>place order</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
