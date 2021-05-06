@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
         <Text style={styles.buttonLabel}>
           Please read our Terms and Coditions here
         </Text>
-        <Button_Secondary btnText="Terms & Conditions" />
+        {/* <Button_Secondary btnText="Terms & Conditions" /> */}
         <Button
           btnStyles={styles.btn}
           textStyle={styles.btnText}
@@ -69,18 +69,21 @@ const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
     alignItems: "center",
+    justifyContent: 'center'
   },
   buttonLabel: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: "bold",
-    marginVertical: 15,
+    marginVertical: 5,
+  
   },
   btn: {
     flexDirection: "row",
     justifyContent: "center",
     alignContent: "center",
     backgroundColor: "#ffc100",
-    marginVertical: 10,
+    marginVertical: 5,
+    marginHorizontal: 40,
     padding: 15,
     borderRadius: 50,
   },

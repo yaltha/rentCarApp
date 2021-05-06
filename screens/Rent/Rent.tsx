@@ -27,7 +27,8 @@ const Rent = () => {
   const [isSelectedCar, setIsSelectedCar] = useState(false);
 
   //date picker useState
-  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
@@ -53,10 +54,15 @@ const Rent = () => {
     setIsDatePickerVisible(false)
   }
 
-  const handleConfirm = (date: Date) => {
-    console.warn("A date has been picked", date)
+  const handleConfirmStartDate = (date: Date) => {
+    // console.warn("A date has been picked", date)
     hideDatePicker()
-    setDate(date)
+    setStartDate(date)
+  }
+  const handleConfirmEndDate = (date: Date) => {
+    // console.warn("A date has been picked", date)
+    hideDatePicker()
+    setEndDate(date)
   }
 
   // const showDatePicker = () => {
@@ -99,7 +105,7 @@ const Rent = () => {
               <Text>Start Renting</Text>
               <Icon type="font-awesome-5" name="calendar-check" />
             </View>
-            <Text>{date.getDate()} {date.getMonth().toString()} {date.getFullYear()}</Text>
+            <Text>{startDate.getDate()}/{startDate.getMonth() + 1}/{startDate.getFullYear()}</Text>
             {/* <DateTimePicker
               testID="dateTimePicker"
               value={date}
@@ -109,20 +115,29 @@ const Rent = () => {
               onChange={onChange}
             /> */}
             <DateTimePickerModal
+              date={new Date()}
               isVisible={isDatePickerVisible}
               mode='date'
-              onConfirm={handleConfirm}
+              onConfirm={handleConfirmStartDate}
               onCancel={hideDatePicker}
             />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.endDate}
+            onPress={showDatePicker}
           >
             <View style={styles.pickDate}>
               <Text>End Renting</Text>
               <Icon type="font-awesome-5" name="calendar-check" />
             </View>
-            <Text>DD/MM/YYYY</Text>
+            <Text>{endDate.getDate()}/{endDate.getMonth() + 1}/{endDate.getFullYear()}</Text>
+            <DateTimePickerModal
+              date={new Date()}
+              isVisible={isDatePickerVisible}
+              mode='date'
+              onConfirm={handleConfirmEndDate}
+              onCancel={hideDatePicker}
+            />
           </TouchableOpacity>
         </View>
 
