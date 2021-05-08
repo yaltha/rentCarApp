@@ -1,33 +1,42 @@
-import React, { FC } from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import ModalDatePicker from 'react-native-datepicker-modal'
+import DatePicker from 'react-native-datepicker'
 
-import colors from '../../config/colors'
-import spacing from '../../config/spacing'
-import fontSize from '../../config/fontSizes'
-
-type RentProps = {
-    style: {}
-}
-
-const Rent2: React.FC<RentProps> = ({
-    style,
-    ...props
-}) => {
+const Rent2 = () => {
+    const [date, setDate] = useState(new Date())
     return (
-
-        <ModalDatePicker
-            style={[styles.container, style]}
-            renderDate={({ year, month, day, date }) => {
-                if (!date) {
-                    return <Text style={[styles.text, styles.placeholderText]}>Date of Birth</Text>
-                }
-                const dateStr = `${day}-${month}-${year}`
-                return <Text style={styles.text}>{dateStr}</Text>
-            }}
-            {...props}
-        />
+        <View style={styles.container}>
+            <Text style={styles.title}>
+                React Native Date Picker – To Pick the Date using Native Calendar
+        </Text>
+            <DatePicker
+                style={styles.datePickerStyle}
+                date={date} //initial date from state
+                mode="date" //The enum of date, datetime and time
+                placeholder="select date"
+                format="DD-MM-YYYY"
+                minDate="01-01-2021"
+                maxDate="01-01-2022"
+                confirmBtnText="Confirm"
+                cancelBtnText="Cancel"
+                customStyles={{
+                    dateIcon: {
+                        //display: 'none',
+                        position: 'absolute',
+                        left: 0,
+                        top: 4,
+                        marginLeft: 0,
+                    },
+                    dateInput: {
+                        marginLeft: 36,
+                    },
+                }}
+                onDateChange={(date: Date) => {
+                    setDate(date);
+                }}
+            />
+        </View>
     )
 }
 
@@ -35,24 +44,19 @@ export default Rent2
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.white,
-        borderBottomColor: colors.gray.veryLight,
-        borderBottomWidth: 1,
-        marginVertical: spacing[1],
-        marginHorizontal: spacing[0],
+        flex: 1,
+        padding: 10,
         justifyContent: 'center',
-        borderRadius: 2,
-        height: 50
+        alignItems: 'center',
     },
-    placeholderText: {
-        color: colors.gray.light
+    title: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+        padding: 20,
     },
-    text: {
-        width: '100%',
-        paddingHorizontal: spacing[1],
-        paddingVertical: spacing[0],
-        // fontFamily: 'Montserrat',
-        fontSize: fontSize.medium,
-        color: colors.gray.dark
-    }
+    datePickerStyle: {
+        width: 200,
+        marginTop: 20,
+    },
 })
