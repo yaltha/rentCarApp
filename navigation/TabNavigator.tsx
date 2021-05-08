@@ -6,7 +6,7 @@ import { MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
 import { Icon } from 'react-native-elements'
 import { TabNavigatorParamsList } from "../types";
 
-import { Account, Home, Cars, Rent } from "../screens";
+import { Account, Home, Cars, Rent, Rent2 } from "../screens";
 
 const TabStack = createBottomTabNavigator<TabNavigatorParamsList>();
 
@@ -64,10 +64,10 @@ const TabNavigator = () => {
           borderColor: "rgba(0,0,0,0)",
         },
       }}
-      screenOptions={({route})=>({
-        tabBarIcon: ({focused}) => {
-          let label,iconName: string
-          
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused }) => {
+          let label, iconName: string
+
           switch (route.name) {
             case 'Home':
               label = 'Home'
@@ -94,9 +94,9 @@ const TabNavigator = () => {
               focused={focused}
             >
               <Icon
-                type = 'font-awesome-5'
-                name = {iconName}
-                color = {focused ? '#0f0f0f' : '#acbac3'}
+                type='font-awesome-5'
+                name={iconName}
+                color={focused ? '#0f0f0f' : '#acbac3'}
               />
             </TabContainer>
           )
@@ -151,7 +151,8 @@ const TabNavigator = () => {
        */}
       <Screen name="Home" component={Home} />
       <Screen name="Cars" component={Cars} />
-      <Screen name="Rent" component={Rent} />
+      {/* <Screen name="Rent" component={Rent} /> */}
+      <Screen name="Rent" component={Rent2} />
       <Screen name="Account" component={Account} />
     </Navigator>
   );
