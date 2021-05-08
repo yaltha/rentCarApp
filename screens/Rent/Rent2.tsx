@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 
 import DatePicker from 'react-native-datepicker'
 
+
 const Rent2 = () => {
     const [date, setDate] = useState(new Date())
     return (
