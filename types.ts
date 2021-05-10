@@ -2,6 +2,7 @@ import { NavigatorScreenParams } from '@react-navigation/native'
 
 export type CarsType = {
     brandName: string
+    image: string
     gearTransmision: string
     rentPrice: number
 };

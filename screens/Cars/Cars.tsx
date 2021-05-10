@@ -1,23 +1,26 @@
 import React from 'react'
 import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { CarsType } from '../../types'
-import Data from '../../cars.json'
+import { CarsType, TabNavigatorParamsList } from '../../types'
+import Data from '../../carsData'
 import CarCard from '../../components/CarCard'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 type Props = {
-    carItems: CarsType[]
+    carItems: CarsType[],
+    navigation: StackNavigationProp<TabNavigatorParamsList, "Rent">;
+
 }
-const Cars: React.FC<Props> = ({ carItems }) => {
+const Cars: React.FC<Props> = ({ carItems, navigation }) => {
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <Text style={styles.title}>available cars</Text>
                 <FlatList
                     // keyExtractor ={}
                     data={Data}
                     renderItem={({ item }) => {
-                        return <CarCard carItems={item} />
+                        return <CarCard carItems={item} navigation={navigation} />
                     }}
                     showsVerticalScrollIndicator={false}
                 />
