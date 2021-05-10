@@ -151,8 +151,8 @@ const TabNavigator = () => {
        */}
       <Screen name="Home" component={Home} />
       <Screen name="Cars" component={Cars} />
-      {/* <Screen name="Rent" component={Rent} /> */}
-      <Screen name="Rent" component={Rent2} />
+      <Screen name="Rent" component={Rent} />
+      {/* <Screen name="Rent" component={Rent2} /> */}
       <Screen name="Account" component={Account} />
     </Navigator>
   );

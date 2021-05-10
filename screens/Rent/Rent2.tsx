@@ -1,63 +1,72 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useState } from "react";
+import { StyleSheet, View, Text } from "react-native";
+import moment from "moment";
+import DateRangePicker from "react-native-date-ranges";
 
-import DatePicker from 'react-native-datepicker'
+const DatePickerRange = () => {
+    const [startDate, setStartDate] = useState(null)
+    const [endDate, setEndDate] = useState(null)
+    const [displayedDate, setDisplayedDate] = useState(moment())
 
+    const setDates = (dates) =>{
+        setStartDate()
+    }
 
-const Rent2 = () => {
-    const [date, setDate] = useState(new Date())
-    return (
+    return(
         <View style={styles.container}>
-            <Text style={styles.title}>
-                React Native Date Picker – To Pick the Date using Native Calendar
-        </Text>
-            <DatePicker
-                style={styles.datePickerStyle}
-                date={date} //initial date from state
-                mode="date" //The enum of date, datetime and time
-                placeholder="select date"
-                format="DD-MM-YYYY"
-                minDate="01-01-2021"
-                maxDate="01-01-2022"
-                confirmBtnText="Confirm"
-                cancelBtnText="Cancel"
-                customStyles={{
-                    dateIcon: {
-                        //display: 'none',
-                        position: 'absolute',
-                        left: 0,
-                        top: 4,
-                        marginLeft: 0,
-                    },
-                    dateInput: {
-                        marginLeft: 36,
-                    },
-                }}
-                onDateChange={(date: Date) => {
-                    setDate(date);
-                }}
-            />
-        </View>
+        <DateRangePicker
+          onChange={setDates}
+          endDate={endDate}
+          startDate={startDate}
+          displayedDate={displayedDate}
+          range
+        >
+          <Text>Click me!</Text>
+        </DateRangePicker>
+      </View>
     )
 }
 
-export default Rent2
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startDate: null,
+      endDate: null,
+      displayedDate: moment(),
+    };
+  }
+
+  setDates = (dates) => {
+    this.setState({
+      ...dates,
+    });
+  };
+
+  render() {
+    const { startDate, endDate, displayedDate } = this.state;
+    return (
+      <View style={styles.container}>
+        <DateRangePicker
+          onChange={this.setDates}
+          endDate={endDate}
+          startDate={startDate}
+          displayedDate={displayedDate}
+          range
+        >
+          <Text>Click me!</Text>
+        </DateRangePicker>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    title: {
-        textAlign: 'center',
-        fontSize: 20,
-        fontWeight: 'bold',
-        padding: 20,
-    },
-    datePickerStyle: {
-        width: 200,
-        marginTop: 20,
-    },
-})
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    
+  },
+});
