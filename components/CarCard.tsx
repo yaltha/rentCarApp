@@ -1,7 +1,6 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import { CarsType, TabNavigatorParamsList } from '../types'
-import Button_Secondary from '../components/Button_Secondary'
 import Button from './Button/Button'
 import { StackNavigationProp } from '@react-navigation/stack'
 
@@ -14,7 +13,6 @@ const CarCard: React.FC<Props> = ({
     carItems,
     navigation
 }) => {
-    // const imgUri = carItems.image
     return (
         <View style={styles.carCardContainer}>
             <Text style={styles.brandTitle}>{carItems.brandName}</Text>
@@ -22,7 +20,11 @@ const CarCard: React.FC<Props> = ({
             <View
             // style={styles.imgContainer}
             >
-                <Image source={{ uri: carItems.image }}
+                <Image
+                    source={{ uri: carItems.image }}
+                    // source={require(carItems.image)}
+                    // source={carItems.image}
+                    // source={require('../assets/cars/daihatsu-xenia-m.jpeg')}
                     style={styles.carImg}
                 />
             </View>
@@ -35,7 +37,6 @@ const CarCard: React.FC<Props> = ({
                 iconName="check-circle"
                 onPress={() => navigation.navigate("Rent")}
             />
-            {/* <Button_Secondary btnText="Select" /> */}
             <Text style={styles.moreText}>more</Text>
         </View>
     )
@@ -68,10 +69,10 @@ const styles = StyleSheet.create({
     // marginVertical: 10,
     // },
     carImg: {
-        width: '100%',
+        width: 320,
         height: 200,
         marginVertical: 10,
-
+        // resizeMode: 'contain'
     },
     rentPriceText: {
         fontWeight: 'bold',

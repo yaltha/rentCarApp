@@ -1,9 +1,16 @@
+import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import ButtonAuthentication from "../../components/Button_Auth";
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button } from "../../components";
+// import ButtonAuthentication from "../../components/Button_Auth";
 import InputAuthentication from "../../components/Input_Auth";
+import { TopNavigatorParamsList } from "../../types";
 
-const Login = () => {
+export interface LoginProps {
+  navigation: StackNavigationProp<TopNavigatorParamsList, 'Login'>
+}
+
+const Login: React.FC<LoginProps> = ({ navigation }) => {
   return (
     <View style={styles.loginContainer}>
       <Text style={styles.loginText}>login</Text>
@@ -17,7 +24,20 @@ const Login = () => {
         placeholder="your password..."
         keyboardType="visible-password"
       />
-      <ButtonAuthentication buttonText="login" />
+      {/* <ButtonAuthentication buttonText="login" /> */}
+      <Button
+        onPress={() => navigation.navigate('Tabs')}
+        text="login"
+        iconName='user-circle'
+        iconType='font-awesome-5'
+        btnStyles={styles.btnLogin}
+        textStyle={styles.btnTxt}
+      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Signup')}
+      >
+        <Text >go to Sign Up</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -33,5 +53,23 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 64,
     fontWeight: 'bold',
+    marginBottom: 50
   },
+  btnLogin: {
+    position: "absolute",
+    bottom: 0,
+    // marginTop: 50,
+    marginBottom: 0,
+    width: Dimensions.get('window').width,
+    paddingVertical: 20,
+    paddingHorizontal: 40,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius:0,
+    borderBottomRightRadius:0,
+  },
+  btnTxt: {
+    fontSize: 16,
+    marginRight: 10
+  }
 });

@@ -9,16 +9,17 @@ export interface SplashProps {
     navigation: StackNavigationProp<TopNavigatorParamsList, 'Splash'>
 }
 
-const Splash: React.FC<SplashProps> = ({navigation}) => {
+const Splash: React.FC<SplashProps> = ({ navigation }) => {
     return (
         <View style={styles.root}>
-            <Icon containerStyle={styles.iconContainer} type="font-awesome-5" name="car"/>
+            <Icon containerStyle={styles.iconContainer} type="font-awesome-5" name="car" />
             <Text style={styles.greeting}>Rent Car</Text>
             <TouchableOpacity
                 style={styles.button}
-                onPress={()=>navigation.navigate('Tabs')}
-                >
-            <Text>Tap here to Enter</Text>
+                // onPress={()=>navigation.navigate('Tabs')}
+                onPress={() => navigation.navigate('Login')}
+            >
+                <Text>Tap here to Enter</Text>
             </TouchableOpacity>
         </View>
     )

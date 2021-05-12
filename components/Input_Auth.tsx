@@ -30,16 +30,16 @@ const styles = StyleSheet.create({
   inputContainer: {
     width: Dimensions.get('window').width,
     paddingHorizontal: 30,
-},
-labelText: {
+  },
+  labelText: {
     fontWeight: 'bold',
     fontSize: 24,
     marginVertical: 5,
   },
   textInput: {
     height: 70,
-    // borderColor: "#ccc",
-    // borderWidth: 1,
+    borderColor: "#ccc",
+    borderWidth: 1,
     borderRadius: 5,
     backgroundColor: "#f5f5f5",
     padding: 15,

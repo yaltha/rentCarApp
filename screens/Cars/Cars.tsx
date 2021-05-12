@@ -7,24 +7,27 @@ import CarCard from '../../components/CarCard'
 import { StackNavigationProp } from '@react-navigation/stack'
 
 type Props = {
-    carItems: CarsType[],
+    // carItems: CarsType[],
     navigation: StackNavigationProp<TabNavigatorParamsList, "Rent">;
 
 }
-const Cars: React.FC<Props> = ({ carItems, navigation }) => {
+const Cars: React.FC<Props> = ({
+    // carItems,
+    navigation
+}) => {
     return (
         <SafeAreaView>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Text style={styles.title}>available cars</Text>
-                <FlatList
-                    // keyExtractor ={}
-                    data={Data}
-                    renderItem={({ item }) => {
-                        return <CarCard carItems={item} navigation={navigation} />
-                    }}
-                    showsVerticalScrollIndicator={false}
-                />
-            </ScrollView>
+            {/* <ScrollView showsVerticalScrollIndicator={false}> */}
+            <Text style={styles.title}>available cars</Text>
+            <FlatList
+                keyExtractor={item => item.id.toString()}
+                data={Data}
+                renderItem={({ item }) => {
+                    return <CarCard carItems={item} navigation={navigation} />
+                }}
+                showsVerticalScrollIndicator={false}
+            />
+            {/* </ScrollView> */}
         </SafeAreaView>
     )
 }

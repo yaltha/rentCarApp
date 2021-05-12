@@ -13,6 +13,8 @@ export type RootNavigatorParamsList = {
 
 export type TopNavigatorParamsList = {
     Splash: undefined
+    Login: undefined
+    Signup: undefined
     Tabs: undefined
 }
 

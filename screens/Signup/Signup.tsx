@@ -1,12 +1,19 @@
+import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import ButtonAuthentication from "../../components/Button_Auth";
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button } from "../../components";
+// import ButtonAuthentication from "../../components/Button_Auth";
 import InputAuthentication from "../../components/Input_Auth";
+import { TopNavigatorParamsList } from "../../types";
 
-const Login = () => {
+export interface SignupProps {
+  navigation: StackNavigationProp<TopNavigatorParamsList, 'Signup'>
+}
+
+const Login: React.FC<SignupProps> = ({ navigation }) => {
   return (
     <View style={styles.loginContainer}>
-      <Text style={styles.loginText}>signup</Text>
+      <Text style={styles.signupText}>signup</Text>
       <InputAuthentication
         labelText="Email"
         placeholder="your email address..."
@@ -17,7 +24,21 @@ const Login = () => {
         placeholder="your password..."
         keyboardType="visible-password"
       />
-      <ButtonAuthentication buttonText="signup" />
+      {/* <ButtonAuthentication buttonText="signup" /> */}
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Login')}
+      >
+        <Text >go to Login</Text>
+      </TouchableOpacity>
+      <Button
+        onPress={() => navigation.navigate('Tabs')}
+        text="signup"
+        iconName='user-circle'
+        iconType='font-awesome-5'
+        btnStyles={styles.btnSignup}
+        textStyle={styles.btnTxt}
+      />
+
     </View>
   );
 };
@@ -30,8 +51,26 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  loginText: {
+  signupText: {
     fontSize: 64,
     fontWeight: 'bold',
+    marginBottom: 50
   },
+  btnSignup: {
+    position: "absolute",
+    bottom: 0,
+    // marginTop: 50,
+    marginBottom: 0,
+    width: Dimensions.get('window').width,
+    paddingVertical: 20,
+    paddingHorizontal: 40,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius:0,
+    borderBottomRightRadius:0,
+  },
+  btnTxt: {
+    fontSize: 16,
+    marginRight: 10
+  }
 });
